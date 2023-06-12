@@ -1,0 +1,11 @@
+export enum Permisos {
+  'DELETE_USER',
+  'EDIT_USER',
+  'ADD_PRODUCT',
+  'EDIT_PRODUCT',
+  'DELETE_PRODUCTS',
+  'SHOW_PRODUCTS',
+  'SHOW_USERS',
+  'SHOW_ORDERS',
+  'UPDATE ORDER',
+}
