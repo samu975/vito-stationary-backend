@@ -1,53 +1,22 @@
 import { Column, Table, Model } from 'sequelize-typescript';
-import { Producto } from '../../producto/models/producto';
 
 @Table
-export class Order extends Model {
+export class Orden extends Model {
   @Column
-  codigoOrden: number;
+  user_id: number;
 
   @Column
-  fechaOrden: Date;
+  costo: number;
 
   @Column
-  horaOrden: Date;
+  impuesto: number;
 
   @Column
-  productosOrdenados: Array<Producto>;
+  total: number;
 
   @Column
-  subTotalOrden: number;
-
-  @Column
-  ivaOrden: number;
-
-  @Column
-  envioOrden: number;
-
-  @Column
-  totalOrden: number;
-
-  @Column
-  nombreCliente: string;
-
-  @Column
-  emailCliente: string;
-
-  @Column
-  direccionCliente: string;
-
-  @Column
-  telefonoCliente: number;
-
-  @Column
-  ciudadCliente: string;
-
-  @Column
-  departamentoCliente: string;
-
-  @Column
-  idCliente: string;
+  carrito_id: number;
 
   @Column({ defaultValue: false })
-  isPayd: boolean;
+  pagado: boolean;
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Producto } from './models/producto';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateProductDto } from './dto/crear-producto.dto';
+import { UpdateProductDto } from './dto/update-product.dto';
 
 @Injectable()
 export class ProductoService {
@@ -34,8 +35,23 @@ export class ProductoService {
     });
   }
 
+  async updateProduct(id: string, updateProductDto: UpdateProductDto) {
+    const [rowsUpdated] = await this.productoModel.update(updateProductDto, {
+      where: { id },
+    });
+
+    if (rowsUpdated === 0) {
+      throw new Error('No se pudo actualizar el producto');
+    }
+
+    return this.productoModel.findByPk(id);
+  }
   async remove(id: string): Promise<void> {
-    const user = await this.findOne(id);
-    await user.destroy();
+    const product = await this.productoModel.findOne({
+      where: {
+        id,
+      },
+    });
+    await product.destroy();
   }
 }

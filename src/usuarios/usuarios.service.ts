@@ -55,6 +55,18 @@ export class UsuariosService {
     };
   }
 
+  async updateUsuario(id: string, updateUsuarioDto: CreateUsuarioDto) {
+    const [rowsUpdated] = await this.usuarioModel.update(updateUsuarioDto, {
+      where: { id },
+    });
+
+    if (rowsUpdated === 0) {
+      throw new Error('No se pudo actualizar el usuario');
+    }
+
+    return this.usuarioModel.findByPk(id);
+  }
+
   async remove(id: string): Promise<void> {
     const user = await this.findOne(id);
     await user.destroy();

@@ -1,28 +1,28 @@
 import { Column, Table, Model } from 'sequelize-typescript';
 
 @Table
-export class Payment extends Model {
+export class Pago extends Model {
   @Column
-  codigoPago: number;
+  carrito_id: number;
 
   @Column
-  fechaOrden: Date;
+  verification_token: string;
 
   @Column
-  horaOrden: Date;
+  payment_method: string;
 
   @Column
-  ordenPagada: number;
+  cedula: number;
 
   @Column
-  nombrePagador: string;
+  total: number;
 
   @Column
-  emailPagador: string;
+  order_id: number;
 
   @Column
-  idPagador: string;
+  billing_id: number;
 
-  @Column({ defaultValue: false })
-  isPayd: boolean;
+  @Column
+  shipping_id: number;
 }

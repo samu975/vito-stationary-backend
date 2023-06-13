@@ -14,7 +14,7 @@ export class Usuario extends Model {
   @Column
   contrasena: string;
 
-  @Default(1)
+  @Default(2)
   @Column
   rol: number;
 }

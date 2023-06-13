@@ -20,6 +20,10 @@ export class RolesService {
     });
   }
 
+  async findAll(): Promise<Roles[]> {
+    return await this.rolesModel.findAll();
+  }
+
   getPermisos(): any {
     return Permisos;
   }

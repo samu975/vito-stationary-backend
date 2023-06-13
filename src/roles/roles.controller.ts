@@ -10,8 +10,14 @@ export class RolesController {
   insertRol(@Body() crearRolesDto: CreateRolDto) {
     return this.service.create(crearRolesDto);
   }
-  @Get('/permisos')
+
+  @Get()
   getRoles() {
+    return this.service.findAll();
+  }
+
+  @Get('/permisos')
+  getRolesPermisos() {
     return this.service.getPermisos();
   }
 }

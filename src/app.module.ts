@@ -5,6 +5,9 @@ import { CategoriaModule } from './categoria/categoria.module';
 import { ProductoModule } from './producto/producto.module';
 import { RolesModule } from './roles/roles.module';
 import { AuthModule } from './auth/auth.module';
+import { OrdenModule } from './orden/orden.module';
+import { PagoModule } from './pago/pago.module';
+import { EnvioModule } from './envio/envio.module';
 
 @Module({
   imports: [
@@ -23,6 +26,9 @@ import { AuthModule } from './auth/auth.module';
     ProductoModule,
     RolesModule,
     AuthModule,
+    OrdenModule,
+    PagoModule,
+    EnvioModule,
   ],
   controllers: [],
   providers: [],

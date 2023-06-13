@@ -6,10 +6,12 @@ import {
   Post,
   Delete,
   Patch,
+  Put,
 } from '@nestjs/common';
 import { ProductoService } from './producto.service';
 import { CreateProductDto } from './dto/crear-producto.dto';
 import { Producto } from './models/producto';
+import { UpdateProductDto } from './dto/update-product.dto';
 
 @Controller('api/producto')
 export class ProductoController {
@@ -30,10 +32,10 @@ export class ProductoController {
     return this.productoService.findOne(id);
   }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() producto: Producto) {
-  //   return this.productoService.update(producto);
-  // }
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
+    return this.productoService.updateProduct(id, updateProductDto);
+  }
 
   @Delete(':id')
   remove(@Param('id') id: string): Promise<void> {

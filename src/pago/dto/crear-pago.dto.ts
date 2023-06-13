@@ -1,10 +1,10 @@
 export class CreatePaymentDto {
-  codigoPago: number;
-  fechaPago: Date;
-  horaPago: Date;
-  ordenPagada: number;
-  medioPago: string;
-  nombrePagador: string;
-  emailPagador: string;
-  idPagador: number;
+  user_id: number;
+  verification_token: string;
+  payment_method: string;
+  cedula: number;
+  total: number;
+  order_id: number;
+  billing_id: number;
+  shipping_id: number;
 }
