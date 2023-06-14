@@ -8,9 +8,13 @@ import { AuthModule } from './auth/auth.module';
 import { OrdenModule } from './orden/orden.module';
 import { PagoModule } from './pago/pago.module';
 import { EnvioModule } from './envio/envio.module';
+import { UploadController } from './upload/upload.controller';
+import { UploadModule } from './upload/upload.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     SequelizeModule.forRoot({
       dialect: 'mysql',
       host: 'localhost',
@@ -29,8 +33,9 @@ import { EnvioModule } from './envio/envio.module';
     OrdenModule,
     PagoModule,
     EnvioModule,
+    UploadModule,
   ],
-  controllers: [],
+  controllers: [UploadController],
   providers: [],
 })
 export class AppModule {}
