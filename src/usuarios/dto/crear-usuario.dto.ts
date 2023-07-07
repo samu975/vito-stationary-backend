@@ -4,4 +4,5 @@ export class CreateUsuarioDto {
   email: string;
   contrasena: string;
   rol: number;
+  telefono: string;
 }

@@ -20,6 +20,7 @@ export class UsuariosService {
       email: crearUsuarioDto.email,
       contrasena: md5(crearUsuarioDto.contrasena),
       rol: crearUsuarioDto.rol,
+      telefono: crearUsuarioDto.telefono,
     });
   }
   async findAll(): Promise<Usuario[]> {
@@ -49,6 +50,7 @@ export class UsuariosService {
       correo: user.email,
       rol: user.rol,
       nombre: user.nombre,
+      telefono: user.telefono,
     };
     return {
       access_token: await this.jwtService.signAsync(payload),

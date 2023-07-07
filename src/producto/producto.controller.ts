@@ -32,7 +32,7 @@ export class ProductoController {
     return this.productoService.findOne(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
     return this.productoService.updateProduct(id, updateProductDto);
   }
