@@ -69,6 +69,18 @@ export class UsuariosService {
     return this.usuarioModel.findByPk(id);
   }
 
+  async updateUsuarioPassword(id: string, nuevaContraseña: string) {
+    const contraseñaEncriptada = md5(nuevaContraseña);
+    const [rowsUpdated] = await this.usuarioModel.update(
+      { contrasena: contraseñaEncriptada },
+      { where: { id } },
+    );
+
+    if (rowsUpdated === 0) {
+      throw new Error('No se pudo actualizar la contraseña del usuario');
+    }
+  }
+
   async remove(id: string): Promise<void> {
     const user = await this.findOne(id);
     await user.destroy();

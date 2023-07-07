@@ -6,6 +6,7 @@ import {
   Post,
   Delete,
   Put,
+  Patch,
 } from '@nestjs/common';
 import { UsuariosService } from './usuarios.service';
 import { CreateUsuarioDto } from './dto/crear-usuario.dto';
@@ -29,8 +30,17 @@ export class UsuariosController {
   findOne(@Param('id') id: string): Promise<Usuario> {
     return this.service.findOne(id);
   }
+
   @Put(':id')
   update(@Param('id') id: string, @Body() updateUsuarioDto: CreateUsuarioDto) {
+    return this.service.updateUsuario(id, updateUsuarioDto);
+  }
+
+  @Put('/password/:id')
+  updateUsuarioPassword(
+    @Param('id') id: string,
+    @Body() updateUsuarioDto: CreateUsuarioDto,
+  ) {
     return this.service.updateUsuario(id, updateUsuarioDto);
   }
 
